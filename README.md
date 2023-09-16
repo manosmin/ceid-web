@@ -38,13 +38,19 @@ To import sample data to database download mongotools and run
   mongorestore cases.bson
 ```
 
-You can log-in as any user using the following credentials:
+Then, you can log-in as any user using the following credentials
 ```bash
-  Username: User0
-  Password: user0pass
+  Username: UserX
+  Password: userXpass
+```
+
+or as admin
+
+```bash
   Username: admin
   Password: admin
 ```
+
 ## Screenshots
 *User Authentication*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss5.png)
