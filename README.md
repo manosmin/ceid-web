@@ -29,6 +29,22 @@ To deploy this project run
   node app.js
 ```
 
+To import sample data to database download mongotools and run
+
+```bash
+  mongorestore pois.bson
+  mongorestore users.bson
+  mongorestore visits.bson
+  mongorestore cases.bson
+```
+
+You can log-in as any user using the following credentials:
+```bash
+  Username: User0
+  Password: user0pass
+  Username: admin
+  Password: admin
+```
 ## Screenshots
 *Map View*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss3.png)
