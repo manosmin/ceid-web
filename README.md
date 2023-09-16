@@ -26,7 +26,7 @@ A web application created to help users track and manage their potential exposur
 To deploy this project run
 
 ```bash
-  npm start
+  node app.js
 ```
 
 ## Screenshots
