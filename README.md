@@ -30,7 +30,7 @@ To deploy this project run
 ```
 
 ## Screenshots
-*User authentication*
+*User Authentication*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss5.png)
 *Map View*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss3.png)
