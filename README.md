@@ -29,7 +29,7 @@ To deploy this project run
   node app.js
 ```
 
-To import sample data to database download mongotools and run
+To import sample data download mongotools and run at auth_demo_app folder
 
 ```bash
   mongorestore pois.bson
@@ -38,7 +38,7 @@ To import sample data to database download mongotools and run
   mongorestore cases.bson
 ```
 
-Then, you can log-in as any user using the following credentials
+Then, you can log-in as any user "X" using the following credentials
 ```bash
   Username: UserX
   Password: userXpass
