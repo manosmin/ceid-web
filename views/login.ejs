@@ -1,0 +1,42 @@
+<head>
+  <title>Είσοδος</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <form action="/login" method="post">
+    <div class = "main">
+      <form class="form1"> 
+        <h2 class="sign" align="center">Γειά σας! Παρακαλώ συνδεθείτε</h2> 
+        <input
+          class="box"
+          type="text"
+          name="username"
+          id="name"
+          placeholder="Όνομα χρήστη"
+          required
+          autofocus
+        />
+        <input
+          class="box"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Κωδικός"
+          required
+        />
+        <input
+        class="submit"
+        type="submit"
+        id="submitDetails"
+        name="submitDetails"
+        value="Υποβολή"
+        />
+        <p class="forgot" align="center">
+        <a href="/register">δεν έχετε λογαριασμό;</a>
+      </form>
+    </div>
+  </form>
+</body>

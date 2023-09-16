@@ -1,0 +1,51 @@
+
+<head>
+    <title>Αλλαγή ονόματος</title>
+    <script src="myglobals.js" type="text/javascript"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="dist/include-html.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  </head>
+  <body>
+   <div data-include="/menu.html"></div> 
+    <div data-include="/sidebar.html"></div>
+
+    <form action="/updateusername" method="post">
+      <div class = "main">
+        <form class="form1"> 
+          <h2 class="sign" align="center">Αλλαγή ονόματος χρήστη</h2> 
+       <input
+        class="box"
+        type="text"
+        name="username"
+        id="name"
+        placeholder="Τωρινό όνομα χρήστη"
+        required
+      />
+
+      <input
+      class="box"
+      type="text"
+      name="newusername"
+      id="name"
+      placeholder="Νέο όνομα χρήστη"
+      required
+    />
+      <input
+        class="submit"
+        type="submit"
+        id="submitDetails"
+        name="submitDetails"
+        value="Αποθήκευση "
+      />
+    </form>
+  </body>
+ 
+  

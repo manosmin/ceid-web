@@ -1,0 +1,48 @@
+<head>
+  <title>Εγγραφή</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <form action="/register" method="post">
+    <div class = "main">
+      <form class="form1"> 
+        <h2 class="sign" align="center">Παρακαλώ εγγραφείτε</h2> 
+     <input
+      class="box"
+      type="text"
+      name="username"
+      id="name"
+      placeholder="Όνομα χρήστη"
+      required
+    />
+    <input
+      class="box"
+      type="email"
+      name="email"
+      id="email"
+      placeholder="E-Mail "
+      required
+    />
+    <input
+      class="box"
+      type="password"
+      name="password"
+      pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+      title="Minimum of 8 characters. Should have at least one uppercase letter, one number and one special character."
+      id="password"
+      placeholder="Κωδικός"
+      required
+    />
+    <input
+      class="submit"
+      type="submit"
+      id="submitDetails"
+      name="submitDetails"
+      value="Υποβολή"
+    />
+    <p class="forgot" align="center">
+    <a href="/login">έχετε ήδη λογαριασμό;</p> 
+  </form>
+</body>

@@ -1,0 +1,31 @@
+<head>
+  <title>Προσομοίωση</title>
+  <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="dist/include-html.min.js"></script>
+
+</head>
+<body>
+  <div data-include="/menuadmin.html"></div>
+  <div class = "main">
+    <p class="sign" align="center" >Παρακαλώ εισάγετε αριθμό χρηστών, επισκέψεων και ποσοστό κρουσμάτων.</p>
+    <form action="/simulate" method="POST">
+    <input class="simform" type=number placeholder="χρήστες" id="n" name="n" min=5/>
+    <input class="simform" type=number placeholder="επισκέψεις" id="v" name="v" min=20/>
+    <input class="simform" type=number placeholder="% κρουσμάτων" id="c" name="c" min=20 max=100/>
+    </br></br>
+    <p class="t">Ημερομηνία αρχής: &emsp;&emsp; Ημερομηνία τέλους:</p>
+    <div class="dateInputsim1">
+    <input type=date placeholder="Αρχή" id="start" name="start"/>&emsp;&emsp;&emsp;
+    <input  type=date placeholder="Τέλος" id="end" name="end"/>
+    </div>
+    </br></br>
+    <input class="submit"type="submit" value="Εκτέλεση"/>
+  </form>
+  </div>
+</div>
+</body>
+
+<script>
+
+</script>

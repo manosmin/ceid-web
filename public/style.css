@@ -1,0 +1,315 @@
+
+
+body {
+  padding-top: 50px;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #efebf6;
+}
+
+.topnav {
+  position: fixed;
+  top: 0;
+  width: 100% ;
+  float:none;
+  display: block;
+  position:fixed;
+  overflow: hidden;
+  background-color: #cccaca;
+  font-family:'Ubuntu', sans-serif;
+  z-index: 9999999;
+}
+
+.topnav a  {
+  float: left;
+  color: #4c27b0;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+ 
+  
+}
+
+.topnav a:hover ,.dropdown:hover .dropbtn {
+  background-color: #ddd;
+  color: #4c27b0;
+  font-weight: 600;
+}
+
+.dropdown {
+ 
+  float:center;
+  overflow:hidden;
+  
+}
+
+ .dropdown .dropbtn { 
+
+    padding: 14px 16px;
+    font-size: 17px;
+    border: none;
+    text-decoration: none;
+    background-color: inherit;
+    color: #4c27b0;
+    font-family:'Ubuntu', sans-serif;
+    margin: 0;
+    font-weight: 600;
+    cursor: pointer;
+    }
+  
+  .dropdown-content {
+    top: 47px;
+    display: none;
+    position: fixed;
+    background-color: #cccaca;
+    width: 160;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 450;
+
+  
+  }
+  
+  .dropdown-content a {
+    color: #4c27b0;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+    float: none;
+    text-align: justify;
+    font-size: 17px;
+  }
+
+  .show {display: block;}
+
+
+   
+
+.main {
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 350px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+    padding-top: 40px;
+    color: #4c27b0;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.box {
+width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+
+}
+
+form.form1 {
+    padding-top: 40px;
+}
+
+.box:focus {
+    border: 2px solid rgba(0, 0, 0, 0.18) ;
+    
+}
+
+.submit {
+    color: #fff;
+    background: linear-gradient(to right, #4c27b0, #6840fb);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 35%;
+    font-size: 15px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    margin:auto ;
+    display: flex;
+}
+.delete{
+  border:none;
+  color:#4c27b0;
+  padding-left: 105px;
+  padding-top: 60px;
+}
+.forgot {
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #E1BEE7;
+    padding-top: 15px;
+    text-decoration: none
+}
+
+a {
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #4c27b0;
+    text-decoration: none
+}
+
+@media (max-width: 600px) {
+    .main {
+        border-radius: 0px;
+    }
+  }
+
+ .sidenav {
+    position:fixed;
+    height: 60%;
+    width: 180px;
+    top: 0;
+    left: 0;
+    background: #4c27b0;
+    border-radius: 25px;
+    z-index: 1;
+    display: inline-block; 
+    
+   }
+
+  
+  .sidenav a  {
+    position: relative;
+    padding: 6px 8px 20px 8px ;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    display: block;
+    text-align: center;
+    
+  }
+  
+  .sidenav a:hover  .dropdown-button:hover {
+    color:#cccaca;
+  }
+  .dropdbtn2{
+    padding: 6px 8px 20px 8px ;
+      font-size: 20px;
+       color: rgb(255, 255, 255);
+       text-align: center;
+       background: #4c27b0;
+       cursor: pointer;
+       border: none;
+       margin-left: 45px;
+     
+     }
+     
+     .dropdown-container2 {
+       display: none;
+       color:rgb(255, 255, 255);
+       background: rgb(105, 75, 187);
+       padding-left: 8px;
+       border-radius: 25px;
+       z-index: 88888;
+     }
+       .show {display: block;}
+      
+      
+     
+
+
+  .map {
+    margin-top: 50;
+    height: 360px;
+  }
+
+  
+.visitresults{
+  text-align: center;
+  color: black;
+  border: 2px solid;
+  margin-left:30%;
+  width: 30%;
+
+}
+
+.button{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  background: linear-gradient(to right, #4c27b0, #6840fb);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  border-radius: 15px;
+  text-align: center;
+  justify-content: center;
+  margin:auto ;
+  display: flex;
+  
+}
+
+.dateInput{
+  width: 40%;
+  margin-left: 30%;
+}
+.dateInputsim1{
+
+  width: 70%;
+  margin-left: 14%;
+  display: flex;
+
+
+}
+
+section#history{
+  margin-top: 30px;
+  margin-left: 30%;
+}
+
+.arrow {
+  position: relative ;
+  margin-top: 1.50%;
+  margin-left: -459;
+  border: solid #4c27b0;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.upload{
+margin-left:30%;
+margin-top: 35px;
+margin-bottom: 30px;
+}
+
+.simform{
+  width: 30%;
+  padding: 0 0 0 10;
+  margin-left: 7;
+  color: #6840fb;
+ 
+}
+
+.t{
+  font-size: 15px;
+  top: 40;
+  margin-left: 50;
+}
