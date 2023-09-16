@@ -29,7 +29,7 @@ To deploy this project run
   node app.js
 ```
 
-To import sample data download mongotools and run at auth_demo_app folder
+To import sample data download [mongotools](https://downloads.mongodb.com/compass/mongosh-1.10.6-win32-x64.zip) and run at auth_demo_app folder
 
 ```bash
   mongorestore pois.bson
