@@ -31,5 +31,8 @@ To deploy this project run
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss3.png)
+![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss2.png)
+![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss1.png)
+![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss4.png)
 
