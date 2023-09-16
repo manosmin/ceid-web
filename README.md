@@ -46,11 +46,13 @@ You can log-in as any user using the following credentials:
   Password: admin
 ```
 ## Screenshots
+*User Authentication*
+![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss5.png)
 *Map View*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss3.png)
 *Location Check-In*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss2.png)
-*Health status updates*
+*Health Status Updates*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss1.png)
 *Contact Tracing*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss4.png)
