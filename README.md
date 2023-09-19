@@ -38,18 +38,8 @@ To import sample data download [mongotools](https://fastdl.mongodb.org/tools/db/
   mongorestore cases.bson
 ```
 
-Then, you can log-in as any user "X" using the following credentials
-`
-  Username: UserX
-  Password: userXpass
-`
+Then, you can log-in as any user "X" using the following credentials `Username: UserX` `Password: userXpass` or as admin `Username: admin` `Password: admin`
 
-or as admin
-
-`
-  Username: admin
-  Password: admin
-`
 
 ## Screenshots
 *User Authentication*
