@@ -39,17 +39,17 @@ To import sample data download [mongotools](https://fastdl.mongodb.org/tools/db/
 ```
 
 Then, you can log-in as any user "X" using the following credentials
-```bash
+`
   Username: UserX
   Password: userXpass
-```
+`
 
 or as admin
 
-```bash
+`
   Username: admin
   Password: admin
-```
+`
 
 ## Screenshots
 *User Authentication*
