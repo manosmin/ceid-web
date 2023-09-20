@@ -33,17 +33,20 @@ To import sample data download [mongotools](https://fastdl.mongodb.org/tools/db/
 
 ```bash
   mongorestore pois.bson
+```
+```bash
   mongorestore users.bson
+```
+```bash
   mongorestore visits.bson
+```
+```bash
   mongorestore cases.bson
 ```
 
-Then, you can log-in as any user "X" using the following credentials </br>
-`Username: UserX`</br>
-`Password: userXpass` </br>
-or as admin </br>
-`Username: admin`</br>
-`Password: admin`
+Then, you can log-in as any user "X" using the following credentials 
+`Username: UserX`, `Password: userXpass` or as admin 
+`Username: admin`, `Password: admin`
 
 
 ## Screenshots
