@@ -1,1 +1,4 @@
+*.js linguist-detect=true
+*.html linguist-detect=true
+*.css linguist-detect=true
 *.ejs linguist-detect=false
