@@ -1,1 +1,1 @@
-*.ejs linguist-detect=false
+views/* linguist-detect=false
