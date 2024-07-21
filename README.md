@@ -14,11 +14,11 @@ This project was made in collaboration with two of my fellow students, to fulfil
 - User authentication, login and register page (implemented with [Passport.js](https://www.passportjs.org/))
 - Users can check-in at various points on the map of Patras, Greece (implemented with [Leaflet.js](https://leafletjs.com/))
 - Users can update their health status in order to notify other users about a potential exposure
-- Users can track their potential exposure to other users declared as virus carriers
+- Users can track their potential exposure to other users, which are declared as virus carriers
 
 ## Tech Stack
 
-**Front End:** Javascript, HTML, CSS, Bootstrap.js, Leaflet.js
+**Front End:** Javascript, HTML, CSS, Bootstrap.js
 
 **Back End:** Node.js, Express.js, MongoDB
 
