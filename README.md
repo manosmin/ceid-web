@@ -15,15 +15,15 @@ A web application created to help users track and manage their potential exposur
 
 ## Tech Stack
 
-**Front End:** Javascript, HTML, CSS3, Bootstrap, jQuery
+**Front End:** Javascript, HTML, CSS, Bootstrap.js, Leaflet.js
 
-**Back End:** Node, Express, MongoDB
+**Back End:** Node.js, Express.js, Passport.js, MongoDB
 
 
 
 ## Deployment
 
-To deploy this project run
+To run this project run
 
 ```bash
   node app.js
