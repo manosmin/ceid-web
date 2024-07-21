@@ -334,3 +334,7 @@ margin-bottom: 30px;
   top: 40;
   margin-left: 50;
 }
+
+.leaflet-popup-content-wrapper {
+  padding: 5px
+}

@@ -165,11 +165,11 @@ function createPopupContent(POIdata, averagePop3hr) {
             <form action="/visit" method="POST" onsubmit="return confirm('Είστε σίγουροι ότι θέλετε να καταχωρήσετε την επίσκεψη;');">
                 <button style="padding: 3px; margin-top: 5px; background: linear-gradient(to right, #4c27b0, #6840fb); border-radius: 15px;" class="btn btn-primary btn-block btn-sm" type="button" data-toggle="collapse" data-target="#demo2_${POIdata.id}"/>Εκτίμηση επισκεπτών</button>
                 <div id="demo2_${POIdata.id}" class="collapse">
-                    <input style="height: 30px; margin-top: 5px; border-radius: 15px; font-size: 12px" class="form-control" type="number" min="1" name="ppl" id="ppl" />
+                    <input placeholder="Εισάγετε αριθμό" style="height: 30px; margin-top: 5px; border-radius: 15px; font-size: 12px" class="form-control" type="number" min="1" name="ppl" id="ppl" />
                     <input class="form-control" type="hidden" name="poiname" id="poiname" value="${POIdata.name}" />
                     <input class="form-control" type="hidden" name="poiid" id="poiid" value="${POIdata.id}" />
                 </div>
-                <input style="padding: 3px; margin-top: 5px; background: linear-gradient(to right, #4c27b0, #6840fb); border-radius: 15px;" class="btn btn-primary btn-block btn-sm" type="submit" name="submit" id="submit" value="Υποβολή"/><br/>
+                <input style="padding: 3px; margin-top: 5px; background: linear-gradient(to right, #4c27b0, #6840fb); border-radius: 15px;" class="btn btn-primary btn-block btn-sm" type="submit" name="submit" id="submit" value="Καταχώρηση"/><br/>
             </form>
         </div>`;
 }
