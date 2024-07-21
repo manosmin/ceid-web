@@ -123,6 +123,16 @@ font-family: 'Ubuntu', sans-serif;
 
 }
 
+.boxnew {
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  font-family: 'Ubuntu', sans-serif;
+  }
+
 form.form1 {
     padding-top: 40px;
 }

@@ -23,13 +23,15 @@ const fixTime = [
 ];
 
 const myMap = L.map("map");
+
 const tileUrl =
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
 const attribution =
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
 const tiles = L.tileLayer(tileUrl, {
     attribution
 });
+
 tiles.addTo(myMap);
 const myLayer = L.layerGroup().addTo(myMap);
 const circlesLayer = L.layerGroup().addTo(myMap);
@@ -113,7 +115,7 @@ function submitData(e) {
             if (isWithinMapBounds(POIdata.lat, POIdata.lng)) {
                 if (index >= 0) {
                     searchResults.innerHTML += "<hr>";
-                    searchResults.innerHTML += `<button type="button" class="btn btn-link" onclick="focusOnMarker(${item.coordinates.lat}, ${item.coordinates.lng})">${item.name}</button>`;
+                    searchResults.innerHTML += `<button type="button" class="btn btn-link" onclick="focusOnMarker(${item.coordinates.lat}, ${item.coordinates.lng})"><span style="font-family: 'Ubuntu', sans-serif; color: #4c27b0; font-weight: bold;">${item.name}</span></button>`;
                 }
                 
                 const distance = calculateDistance(POIdata.lat, POIdata.lng, fake.lat, fake.lng);
