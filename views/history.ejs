@@ -27,16 +27,20 @@
       .then((res) => res.json())
       .then((data) => {
         if (data.length < 1) {
-          
-          history.innerHTML += "<hr>";
-          history.innerHTML += "<p>Nothing found.</p>";
+          history.innerHTML += `<div class="box"><div class="panel-heading">
+                    <p class="sign">Δεν βρέθηκαν δηλώσεις</p>
+                  </div></div>`;
         } else {
           data.forEach((item, index) => {
             let localDate = new Date(item.date);
             if (index >= 0) {
-              history.innerHTML += "<hr>";
-              history.innerHTML += `<b>Χρήστης: </b>${item.username}<br />
-              <b>Ημερομηνία: </b>${localDate}`;
+              history.innerHTML += 
+                `<div class="box">
+                  <div class="panel-body">
+                    <p>${item.username}</p>
+                    <p>Δηλωθήκατε ως κρούσμα την ${localDate.toLocaleString()}</p>
+                  </div>
+                </div>`;
             }
           });
         }
