@@ -41,7 +41,8 @@ L.control
         drawCircle: true,
     })
     .addTo(myMap);
-
+    
+/*
 if (!navigator.geolocation) {
     console.log("geolocation is not supported");
 } else {
@@ -60,6 +61,7 @@ if (!navigator.geolocation) {
         const myMapBounds = myMap.getBounds();
     });
 }
+*/
 
 const fake = {
     lat: 38.250021,
@@ -144,7 +146,7 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
     return latlng1.distanceTo(latlng2);
 }
 
-function createPopupContent(POIdata, averagePop3hr, distance) {
+function createPopupContent(POIdata, averagePop3hr) {
     const visitText = POIdata.cur == null ? 
         `<span style="color: red">Δεν υπάρχουν δεδομένα</span>` : 
         `<span>${POIdata.cur} επισκέπτες τώρα</span>`;
@@ -159,13 +161,13 @@ function createPopupContent(POIdata, averagePop3hr, distance) {
         ${popupContent2}
         <div id="demo_${POIdata.id}" class="collapse">
             <form action="/visit" method="POST" onsubmit="return confirm('Είστε σίγουροι ότι θέλετε να καταχωρήσετε την επίσκεψη;');">
-                <button style="padding: 3px; margin-top: 5px" class="btn btn-primary btn-block btn-sm" type="button" data-toggle="collapse" data-target="#demo2_${POIdata.id}"/>Εκτίμηση ατόμων</button>
+                <button style="padding: 3px; margin-top: 5px" class="btn btn-info btn-block btn-sm" type="button" data-toggle="collapse" data-target="#demo2_${POIdata.id}"/>Εκτίμηση ατόμων</button>
                 <div id="demo2_${POIdata.id}" class="collapse">
-                    <input style="padding: 3px; margin-top: 5px" class="form-control" type="number" min="1" name="ppl" id="ppl" /><br/>
+                    <input style="margin-top: 5px;" class="form-control" type="number" min="1" name="ppl" id="ppl" /><br/>
                     <input class="form-control" type="hidden" name="poiname" id="poiname" value="${POIdata.name}" />
                     <input class="form-control" type="hidden" name="poiid" id="poiid" value="${POIdata.id}" />
                 </div>
-                <input style="padding: 3px; margin-top: 5px" class="btn btn-primary btn-block btn-sm" type="submit" name="submit" id="submit" value="Υποβολή"/><br/>
+                <input style="padding: 3px; margin-top: 5px" class="btn btn-danger btn-block btn-sm" type="submit" name="submit" id="submit" value="Υποβολή"/><br/>
             </form>
         </div>`;
 }
