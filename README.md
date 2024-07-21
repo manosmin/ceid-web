@@ -46,6 +46,8 @@ To import sample data download [mongotools](https://fastdl.mongodb.org/tools/db/
 
 Then, you can log-in as any user "X" entering `userXpass` as password, or as admin entering `admin` as password.
 
+You can show all the available markers by typing "POI" in search box.
+
 
 ## Screenshots
 **Sign Up Page**
