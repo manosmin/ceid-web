@@ -1,7 +1,7 @@
 
 # Web Programming & Systems Project @CEID
 
-A web application created to help users track and manage their potential exposure to virus carriers by crowd-sourcing data about their visits to various places. 
+A website created to help users track and manage their potential exposure to virus carriers by crowd-sourcing data about their visits to various places. 
 
 
 ## Acknowledgements
