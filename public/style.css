@@ -137,6 +137,12 @@ font-family: 'Ubuntu', sans-serif;
   font-family: 'Ubuntu', sans-serif;
   }
 
+.boxforgenericreasons {
+  border-radius: 1.5em; 
+  background-color: white; 
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
 form.form1 {
     padding-top: 40px;
 }
