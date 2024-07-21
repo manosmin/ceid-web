@@ -48,14 +48,16 @@ Then, you can log-in as any user "X" entering `userXpass` as password, or as adm
 
 
 ## Screenshots
-*User Authentication*
+*Sign Up Page*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss5.png)
-*Map View*
+*Map View Page*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss3.png)
 *Location Check-In*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss2.png)
-*Health Status Updates*
+*Health Status Update Page*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss1.png)
-*Contact Tracing*
+*Contact Tracing Page*
 ![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss4.png)
+*History Page*
+![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss6.png)
 
