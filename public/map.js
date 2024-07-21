@@ -154,14 +154,14 @@ function createPopupContent(POIdata, averagePop3hr) {
         `<span>${POIdata.cur} επισκέπτες τώρα</span>`;
 
     const popupContent2 = `
-        <b>Τοποθεσία: </b>${POIdata.name} - ${POIdata.address}
+        <div class="signnew"><b>Τοποθεσία: </b>${POIdata.name} - ${POIdata.address}
         <br><b>Επισκεψιμότητα: </b>${averagePop3hr.toFixed(1)}%
         <br>${visitText}
-        <button id="insertbut_${POIdata.id}" style="padding: 3px; margin-top: 5px; background: linear-gradient(to right, #4c27b0, #6840fb); border-radius: 15px;" class="btn btn-primary btn-block btn-sm" data-toggle="collapse" data-target="#demo_${POIdata.id}" disabled>Βρίσκομαι εδώ</button>`;
+        <button id="insertbut_${POIdata.id}" style="padding: 3px; margin-top: 5px; background: linear-gradient(to right, #4c27b0, #6840fb); border-radius: 15px;" class="btn btn-primary btn-block btn-sm" data-toggle="collapse" data-target="#demo_${POIdata.id}" disabled>Βρίσκομαι εδώ</button><div class="signnew">`;
 
     return `
         ${popupContent2}
-        <div id="demo_${POIdata.id}" class="collapse">
+        <div id="demo_${POIdata.id}" class="signnew collapse">
             <form action="/visit" method="POST" onsubmit="return confirm('Είστε σίγουροι ότι θέλετε να καταχωρήσετε την επίσκεψη;');">
                 <button style="padding: 3px; margin-top: 5px; background: linear-gradient(to right, #4c27b0, #6840fb); border-radius: 15px;" class="btn btn-primary btn-block btn-sm" type="button" data-toggle="collapse" data-target="#demo2_${POIdata.id}"/>Εκτίμηση ατόμων</button>
                 <div id="demo2_${POIdata.id}" class="collapse">

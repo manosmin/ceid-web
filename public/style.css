@@ -103,6 +103,10 @@ body {
     font-size: 23px;
 }
 
+.signnew {
+  font-family: 'Ubuntu', sans-serif;
+}
+
 .box {
 width: 76%;
 color: rgb(38, 50, 56);
