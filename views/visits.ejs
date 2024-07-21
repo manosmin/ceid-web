@@ -28,7 +28,7 @@
       .then((data) => {
         console.log(data.length)
         if (data.length == 0) {
-          history.innerHTML += `<div class="box"><div class="panel-body">
+          history.innerHTML += `<div class="box" style="border: 5px solid #4c27b0; border-radius: 10px"><div class="panel-body">
                     <p>Δεν βρέθηκαν επισκέψεις</p>
                   </div></div>`;
         } else {
@@ -36,10 +36,9 @@
             let localDate = new Date(item.timestamp);
             if (index >= 0) {
               history.innerHTML += 
-                `<div class="box"> 
+                `<div class="box" style="border: 5px solid #4c27b0; border-radius: 10px"> 
                   <div class="panel-body">
-                    <p>Δηλώσατε επίσκεψη στην τοποθεσία ${item.name} στις ${localDate.toLocaleString()}</p>
-                    <p>Δηλώσατε ${item.people_estimate} επισκέπτες</p>
+                    <p>Δήλωσες επίσκεψη στην τοποθεσία ${item.name} στις ${localDate.toLocaleString()} με ${item.people_estimate} επισκέπτες</p>
                   </div>
                 </div>`;
             }

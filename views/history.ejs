@@ -27,7 +27,7 @@
       .then((res) => res.json())
       .then((data) => {
         if (data.length < 1) {
-          history.innerHTML += `<div class="box"><div class="panel-body">
+          history.innerHTML += `<div class="box" style="border: 5px solid #4c27b0; border-radius: 10px"><div class="panel-body">
                     <p>Δεν βρέθηκαν δηλώσεις</p>
                   </div></div>`;
         } else {
@@ -35,9 +35,9 @@
             let localDate = new Date(item.date);
             if (index >= 0) {
               history.innerHTML += 
-                `<div class="box">
+                `<div class="box" style="border: 5px solid #4c27b0; border-radius: 10px">
                   <div class="panel-body">
-                    <p>Δηλωθήκατε ως κρούσμα την ${localDate.toLocaleString()}</p>
+                    <p>Δηλώθηκες ως κρούσμα την ${localDate.toLocaleString()}</p>
                   </div>
                 </div>`;
             }
