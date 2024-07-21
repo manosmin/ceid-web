@@ -27,8 +27,8 @@
       .then((res) => res.json())
       .then((data) => {
         if (data.length < 1) {
-          history.innerHTML += `<div class="box"><div class="panel-heading">
-                    <p class="sign">Δεν βρέθηκαν δηλώσεις</p>
+          history.innerHTML += `<div class="box"><div class="panel-body">
+                    <p>Δεν βρέθηκαν δηλώσεις</p>
                   </div></div>`;
         } else {
           data.forEach((item, index) => {
@@ -37,7 +37,6 @@
               history.innerHTML += 
                 `<div class="box">
                   <div class="panel-body">
-                    <p>${item.username}</p>
                     <p>Δηλωθήκατε ως κρούσμα την ${localDate.toLocaleString()}</p>
                   </div>
                 </div>`;

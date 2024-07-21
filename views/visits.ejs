@@ -26,18 +26,22 @@
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.length < 1) {
-          history.innerHTML += "<hr>";
-          history.innerHTML += "<p>Nothing found.</p>";
+        console.log(data.length)
+        if (data.length == 0) {
+          history.innerHTML += `<div class="box"><div class="panel-body">
+                    <p>Δεν βρέθηκαν επισκέψεις</p>
+                  </div></div>`;
         } else {
           data.forEach((item, index) => {
             let localDate = new Date(item.timestamp);
             if (index >= 0) {
-              history.innerHTML += "<hr>";
-              history.innerHTML += `<b>Χρήστης: </b>${item.username}<br />
-              <b>Όνομα σημείου: </b> ${item.name}<br />
-              <b>Εκτίμηση επισκεπτών: </b>${item.people_estimate}<br />
-              <b>Ημερομηνία: </b>${localDate}`;
+              history.innerHTML += 
+                `<div class="box"> 
+                  <div class="panel-body">
+                    <p>Δηλώσατε επίσκεψη στην τοποθεσία ${item.name} στις ${localDate.toLocaleString()}</p>
+                    <p>Δηλώσατε ${item.people_estimate} επισκέπτες</p>
+                  </div>
+                </div>`;
             }
           });
         }
