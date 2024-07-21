@@ -3,9 +3,9 @@
 
 A web application created to help users track and manage their potential exposure to virus carriers by crowd-sourcing data about their visits to various places. 
 
+## Acknowledgements
+
 This project was made in collaboration with two of my fellow students, to fulfill the requirements of Web Programming & Systems course during the 4th year of my studies.
-
-
 
 ## Features
 
@@ -24,7 +24,7 @@ This project was made in collaboration with two of my fellow students, to fulfil
 
 ## Deployment
 
-To run this project run
+To deploy this project run
 
 ```bash
   node app.js
