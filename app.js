@@ -58,9 +58,9 @@ app.get("/", function (req, res) {
   res.render("login");
 });
 
-// Showing secret page
-app.get("/secret", isLoggedIn, function (req, res) {
-  res.render("secret");
+// Showing mapview page
+app.get("/mapview", isLoggedIn, function (req, res) {
+  res.render("mapview");
 });
 
 // Inserting visit to database
@@ -99,7 +99,7 @@ app.post("/visit", function (req, res) {
       return insertedVisit;
     })
     .catch((err) => console.error(`failed to insert visit: ${err}`));
-  res.render("secret");
+  res.render("mapview");
 });
 
 // Showing register form
@@ -122,7 +122,7 @@ app.post("/register", function (req, res) {
         return res.render("register");
       }
       passport.authenticate("local")(req, res, function () {
-        res.render("secret");
+        res.render("mapview");
       });
     }
   );
@@ -138,7 +138,7 @@ app.get("/login", function (req, res) {
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/secret",
+    successRedirect: "/mapview",
     failureRedirect: "/login",
   }),
   function (req, res) {}
