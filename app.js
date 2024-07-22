@@ -3,7 +3,6 @@ var express = require("express"),
   passport = require("passport"),
   bodyParser = require("body-parser"),
   LocalStrategy = require("passport-local"),
-  passportLocalMongoose = require("passport-local-mongoose"),
   User = require("./models/user"),
   POI = require("./models/POI"),
   Case = require("./models/case"),
@@ -135,9 +134,7 @@ app.get("/login", function (req, res) {
 });
 
 // Handling user login
-app.post(
-  "/login",
-  passport.authenticate("local", {
+app.post( "/login", passport.authenticate("local", {
     successRedirect: "/mapview",
     failureRedirect: "/login",
   }),
