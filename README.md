@@ -11,7 +11,7 @@ The map view page consists of a map and a search box, where users can search for
 
 Users can also register themselves as cases at a chosen date, but they can't register a case unless 14 days have passed since the previous. When a case is found, other users are able to see if they had visited the same place within +-2 hours with that user, for the past 7 days. 
 
-Finally, users can edit their username and password, show their cases and visits history, while admin has the ability to upload or delete data from the database.
+Finally, users can edit their username and password, show their cases and visits history, while admin has the ability to upload/delete data from the database, simulate data and view various charts based on users statistics.
 
 
 ## Acknowledgements
