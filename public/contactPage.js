@@ -2,7 +2,7 @@ function showContacts() {
     const history = document.getElementById("history");
 
     history.innerHTML = "";
-    fetch("test3", {
+    fetch("contactSearch", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -11,7 +11,7 @@ function showContacts() {
         })
         .then((res) => res.json())
         .then((data) => {
-            if (data.length < 1) {
+            if (data.length == 0) {
                 history.innerHTML += `<div class="boxforgenericreasons box">
                     <p class="sign">Δεν βρέθηκαν επαφές με κρούσματα</p>
                   </div></div>`;

@@ -2,7 +2,7 @@ function showCaseHistory() {
     const history = document.getElementById("history");
 
     history.innerHTML = "";
-    fetch("test1", {
+    fetch("caseSearch", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -11,7 +11,7 @@ function showCaseHistory() {
         })
         .then((res) => res.json())
         .then((data) => {
-            if (data.length < 1) {
+            if (data.length == 0) {
                 history.innerHTML += `<div class="boxforgenericreasons box">
                     <p>Δεν βρέθηκαν δηλώσεις</p>
                   </div></div>`;

@@ -2,7 +2,7 @@ function showVisitHistory() {
     const history = document.getElementById("history");
 
     history.innerHTML = "";
-    fetch("test2", {
+    fetch("visitSearch", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

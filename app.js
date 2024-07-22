@@ -355,21 +355,21 @@ app.get("/visits", isLoggedIn, function (req, res) {
 });
 
 // Handling user's case search
-app.post("/test1", async (req, res) => {
+app.post("/caseSearch", async (req, res) => {
   const user = req.user.username;
   let find = await Case.find({ username: user });
   res.send(find);
 });
 
 // Handling user's visit search
-app.post("/test2", async (req, res) => {
+app.post("/visitSearch", async (req, res) => {
   const user = req.user.username;
   let find = await Visit.find({ username: user });
   res.send(find);
 });
 
 // Handling user's encounter with active case
-app.post("/test3", async (req, res) => {
+app.post("/contactSearch", async (req, res) => {
   const user = req.user.username;
   let find = await Visit.aggregate([
     {
