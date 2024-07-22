@@ -338,3 +338,7 @@ margin-bottom: 30px;
 .leaflet-popup-content-wrapper {
   padding: 5px
 }
+
+#map {
+  height: 600px;
+}
