@@ -68,7 +68,7 @@
                                  data: {
                                      labels: ["Επισκέψεις", "Κρούσματα", "Ενεργά Κρούσματα"],
                                      datasets: [{
-                                         label: "# επισκέψεων και κρουσμάτων",
+                                         label: "# επισκέψεων", 
                                          data: [countVisit, countCases, counter],
                                          backgroundColor: [
                                              "rgba(255, 99, 132, 0.2)",

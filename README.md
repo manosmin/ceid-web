@@ -25,6 +25,7 @@ This project was made in collaboration with two of my fellow students, in order 
 - Users can check-in at various points on the map of Patras, Greece (implemented with [Leaflet.js](https://leafletjs.com/))
 - Users can update their health status in order to notify other users about a potential exposure
 - Users can track their potential exposure to other users, which are declared as virus carriers
+- Admin can upload/delete data and see various statistics on users (implemented with [Chart.js](https://www.chartjs.org/))
 
 ## Tech Stack
 
@@ -61,25 +62,28 @@ To import sample data download [mongotools](https://fastdl.mongodb.org/tools/db/
 
 ## Screenshots
 **Register Page**
-![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss5.png)
+![Register Page](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss5.png)
 
 
 **Map View Page**
-![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss3.png)
+![Map View Page](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss3.png)
 
 
 **Location Check-In**
-![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss2.png)
+![Location Check-In](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss2.png)
 
 
 **Health Status Update Page**
-![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss1.png)
+![Health Status Update Page](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss1.png)
 
 
 **Contact Tracing Page**
-![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss4.png)
+![Contact Tracing Page](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss4.png)
 
 
 **History Page**
-![App Screenshot](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss6.png)
+![History Page](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss6.png)
+
+**Admin Charts Page**
+![Admin Charts Page](https://github.com/manosmin/ceid-web/blob/master/screenshots/ss7.png)
 
