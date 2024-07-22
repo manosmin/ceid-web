@@ -11,12 +11,12 @@ The map view page consists of a map and a search box, where users can search for
 
 Users can also register themselves as cases at a chosen date, but they can't register a case unless 14 days have passed since the previous. When a case is found, other users are able to see if they had visited the same place within +-2 hours with that user, for the past 7 days. 
 
-Finally, users can edit their username and password, show their cases and visits history and admin can also upload or remove data from the database.
+Finally, users can edit their username and password, show their cases and visits history, while admin has the ability to upload or delete data from the database.
 
 
 ## Acknowledgements
 
-This project was made in collaboration with two of my fellow students, to fulfill the requirements of Web Programming & Systems course during the 4th year of my studies.
+This project was made in collaboration with two of my fellow students, in order to fulfill the requirements of Web Programming & Systems course during the 4th year of our studies.
 
 
 ## Features
@@ -31,10 +31,6 @@ This project was made in collaboration with two of my fellow students, to fulfil
 **Front End:** Javascript, HTML, CSS, Bootstrap.js
 
 **Back End:** Node.js, Express.js, MongoDB
-
-## Database Schema
-
-![Schema Diagram](https://github.com/manosmin/ceid-web/blob/master/screenshots/schema.png)
 
 ## Deployment
 
@@ -59,6 +55,9 @@ To import sample data download [mongotools](https://fastdl.mongodb.org/tools/db/
   mongorestore cases.bson
 ```
 
+## Database Schema
+
+![Schema Diagram](https://github.com/manosmin/ceid-web/blob/master/screenshots/schema.png)
 
 ## Screenshots
 **Register Page**
