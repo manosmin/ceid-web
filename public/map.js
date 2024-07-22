@@ -78,10 +78,12 @@ const marker = L.marker([fake.lat, fake.lng], {
 L.circle([fake.lat, fake.lng], 20).addTo(myMap);
 myMap.setView([fake.lat, fake.lng], 15);
 
-function submitData(e) {
+function submitData() {
+    const userQuery = document.getElementById("search-box");
     const searchResults = document.getElementById("searchResults");
-    let match = e.value.match(/\s*/);
-    if (match[0] === e.value) {
+    
+    let match = userQuery.value.match(/\s*/);
+    if (match[0] === userQuery.value) {
         searchResults.innerHTML = "";
         return;
     }
@@ -91,7 +93,7 @@ function submitData(e) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ payload: e.value })
+        body: JSON.stringify({ payload: userQuery.value })
     })
     .then((res) => res.json())
     .then((data) => {

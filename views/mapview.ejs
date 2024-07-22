@@ -32,12 +32,22 @@
   <script src="map.js"></script>
   <div class="boxnew panel panel-default">
     <div class=" panel-body">
-      <input type="text" id="search-box" class=" form-control" placeholder="Αναζήτηση σημείων (π.χ. food)"
-        onkeyup="clearMap() + submitData(this)" autofocus />
-      <div>
-        <section id="searchResults"></section>
+      <div class="input-group">
+        <input type="text" id="search-box" class="form-control" placeholder="Εισάγετε είδος τοποθεσίας (π.χ. food)" />
+        <span class="input-group-btn"><button class="btn btn-default" id="search-button"
+            onclick="clearMap() + submitData()">Αναζήτηση</button></span>
       </div>
     </div>
   </div>
-  </div>
+
+  <section id="searchResults"></section>
 </body>
+
+<script>
+  document.getElementById('search-box').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      document.getElementById('search-button').click();
+    }
+  });
+</script>
