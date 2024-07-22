@@ -434,7 +434,7 @@ app.post("/chartCases", async (req, res) => {
 });
 
 // Handling active case chart
-app.post("/chartYolo", async (req, res) => {
+app.post("/chartActiveCases", async (req, res) => {
   let x = await db
     .collection("cases")
     .aggregate([
