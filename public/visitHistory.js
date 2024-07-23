@@ -13,7 +13,7 @@ function showVisitHistory() {
         .then((data) => {
             console.log(data.length)
             if (data.length == 0) {
-                history.innerHTML += `<div class="boxforgenericreasons box"><div class="panel-body">
+                history.innerHTML += `<div class="box boxforgenericreasons"><div class="panel-body">
                   <p>Δεν βρέθηκαν επισκέψεις</p>
                 </div></div>`;
             } else {
@@ -21,7 +21,7 @@ function showVisitHistory() {
                     let localDate = new Date(item.timestamp);
                     if (index >= 0) {
                         history.innerHTML +=
-                            `<div class="boxforgenericreasons box"> 
+                            `<div class="box boxforgenericreasons"> 
                 <div class="panel-body">
                   <p>Δήλωσες επίσκεψη στην τοποθεσία ${item.name} στις ${localDate.toLocaleString()} με ${item.people_estimate} επισκέπτες</p>
                 </div>

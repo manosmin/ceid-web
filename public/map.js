@@ -132,7 +132,7 @@ function submitData() {
                 
                 marker.on('popupopen', () => {
                     let elem = document.getElementById(`insertbut_${POIdata.id}`);
-                    elem.disabled = !(averagePop3hr <= 32 && distance <= 20);
+                    elem.disabled = !(distance <= 20);
                 });
             }
         });
