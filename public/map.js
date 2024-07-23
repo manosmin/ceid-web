@@ -1,18 +1,18 @@
 var blueMarker = L.AwesomeMarkers.icon({
     icon: "home",
-    markerColor: "blue",
+    markerColor: "lightgray",
 });
 var redMarker = L.AwesomeMarkers.icon({
     icon: "star",
-    markerColor: "red",
+    markerColor: "darkpurple",
 });
 var greenMarker = L.AwesomeMarkers.icon({
     icon: "star",
-    markerColor: "green",
+    markerColor: "pink",
 });
 var orangeMarker = L.AwesomeMarkers.icon({
     icon: "star",
-    markerColor: "orange",
+    markerColor: "purple",
 });
 
 const d = new Date();
@@ -73,9 +73,9 @@ const fake = {
 const marker = L.marker([fake.lat, fake.lng], {
         icon: blueMarker
     })
-    .bindPopup("<b> Η τοποθεσία μου", { maxWidth: 200 })
+    .bindPopup(`<div class="signnew"><b> Η τοποθεσία μου</div>`, { maxWidth: 200 })
     .addTo(myMap);
-L.circle([fake.lat, fake.lng], 20).addTo(myMap);
+L.circle([fake.lat, fake.lng], 20).setStyle({fillColor: 'gray', color: 'gray'}).addTo(myMap);
 myMap.setView([fake.lat, fake.lng], 15);
 
 function submitData() {
@@ -197,6 +197,6 @@ function focusOnMarker(x, y) {
     myMap.closePopup();
     circlesLayer.clearLayers();
     myMap.setView([x, y], 18);
-    L.circle([x, y], 20).addTo(circlesLayer);
+    L.circle([x, y], 20).setStyle({fillColor: 'pink', color: 'purple'}).addTo(circlesLayer);
     return;
 }
