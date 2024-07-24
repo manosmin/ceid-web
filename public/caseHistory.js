@@ -12,7 +12,7 @@ function showCaseHistory() {
         .then((res) => res.json())
         .then((data) => {
             if (data.length == 0) {
-                history.innerHTML += `<div class="boxforgenericreasons box">
+                history.innerHTML += `<div class="boxforgenericreasons box"><div class="panel-body">
                     <p>Δεν βρέθηκαν δηλώσεις</p>
                   </div></div>`;
             } else {
@@ -22,7 +22,7 @@ function showCaseHistory() {
                         history.innerHTML +=
                             `<div class="boxforgenericreasons box">
                   <div class="panel-body">
-                    <p>Δηλώθηκες ως κρούσμα την ${localDate.toLocaleString()}</p>
+                    <p>Δηλώθηκες ως κρούσμα στις ${localDate.toLocaleString()}</p>
                   </div>
                 </div>`;
                     }
