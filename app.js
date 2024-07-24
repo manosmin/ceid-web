@@ -10,7 +10,7 @@ var express = require("express"),
 
 const res = require("express/lib/response");
 
-mongoose.connect("mongodb://localhost/auth_demo_app", {
+mongoose.connect("mongodb://localhost/virus_contact_tracing_app", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -40,16 +40,29 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Handling admin signup
-User.register(
-  new User({ username: "admin", email: null, role: 2 }),
-  "admin",
-  function (err, user) {
-    if (err) {
-      console.log(err);
-    }
-    passport.authenticate("local");
+User.findOne({ username: "admin" }, function (err, user) {
+  if (err) {
+    console.log(err);
+    return;
   }
-);
+  if (user) {
+    console.log("admin user already exists");
+    return;
+  }
+  User.register(
+    new User({ username: "admin", email: null, role: 2 }),
+    "admin",
+    function (err, user) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      passport.authenticate("local")(null, null, function () {
+        console.log("admin user registered successfully");
+      });
+    }
+  );
+});
 
 
 // Showing home page
