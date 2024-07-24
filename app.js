@@ -304,7 +304,7 @@ app.post("/simulate", function (req, res) {
               start.getTime() +
                 Math.random() * (end.getTime() - start.getTime())
             ),
-            people_estimate: null,
+            people_estimate: Math.floor(Math.random() * 15) + 1,
             name: docs1[0]["name"],
             id: docs1[0]["id"]
           };
@@ -322,6 +322,9 @@ app.post("/simulate", function (req, res) {
         start.getTime() + Math.random() * (end.getTime() - start.getTime())
       ),
     });
+
+    console.log("all data erased");
+    res.redirect("admin");
 });
 
 // Erasing data
