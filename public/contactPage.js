@@ -12,7 +12,7 @@ function showContacts() {
         .then((res) => res.json())
         .then((data) => {
             if (data.length == 0) {
-                history.innerHTML += `<div class="boxforgenericreasons box">
+                history.innerHTML += `<div class="boxforgenericreasons box"><div class="panel-body">
                     <p class="sign">Δεν βρέθηκαν επαφές με κρούσματα</p>
                   </div></div>`;
             } else {
