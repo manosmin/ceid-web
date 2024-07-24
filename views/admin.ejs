@@ -9,15 +9,13 @@
 <body>
   <div data-include="/menuadmin.html"></div>
   <div class="main">
-    <p class="sign" style=text-align:center>Ανεβάστε ένα αρχείο</p>
+    <p class="sign" style=text-align:center>Ανεβάστε δεδομένα</p>
     <form action="/adminUpload" method="POST">
       <input class="upload" type="file" name="json" id="json" />
-      </br></br>
-      <input class="submit" type="submit" value="Φόρτωση" />
+      <button class="submit" type="submit">Φόρτωση αρχείου</button>
     </form>
-
     <form action="/adminDelete" method="POST">
-      <input class="delete" type="submit" value="Διαγραφή όλων των στοιχείων!" />
+      <button class="submit" type="submit">Διαγραφή όλων</button>
     </form>
   </div>
 </body>
