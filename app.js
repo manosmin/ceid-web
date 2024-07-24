@@ -8,7 +8,6 @@ var express = require("express"),
   Case = require("./models/case"),
   Visit = require("./models/visit");
 
-const res = require("express/lib/response");
 
 mongoose.connect("mongodb://localhost/virus_contact_tracing_app", {
   useNewUrlParser: true,
@@ -52,7 +51,7 @@ User.findOne({ username: "admin" }, function (err, user) {
   User.register(
     new User({ username: "admin", email: null, role: 2 }),
     "admin",
-    function (err, user) {
+    function (err) {
       if (err) {
         console.log(err);
         return;
@@ -221,6 +220,7 @@ app.get("/settings", isLoggedIn, function (req,res) {
   return;
   
 });
+
 // Showing user contact with covid
 app.get("/contact", isLoggedIn, function (req,res) {
   res.render("contact");
@@ -326,12 +326,58 @@ app.post("/simulate", function (req, res) {
 
 // Erasing data
 app.post("/adminDelete", function (req, res) {
-  db.collection("pois").drop();
-  db.collection("visits").drop();
-  db.collection("cases").drop();
-  db.createCollection("pois");
-  db.createCollection("visits");
-  db.createCollection("cases");
+  // Remove all users except admin
+  User.deleteMany({ username: { $ne: "admin" } }, function (err) {
+    if (err) {
+      console.log("error deleting users:", err);
+    } else {
+      console.log("all users except admin deleted");
+    }
+  });
+
+  // Drop and recreate collections
+  db.collection("pois").drop(function (err) {
+    if (err) {
+      console.log("error dropping POIs collection:", err);
+    } else {
+      db.createCollection("pois", function (err) {
+        if (err) {
+          console.log("error creating POIs collection:", err);
+        } else {
+          console.log("POIs collection recreated");
+        }
+      });
+    }
+  });
+
+  db.collection("visits").drop(function (err) {
+    if (err) {
+      console.log("error dropping visits collection:", err);
+    } else {
+      db.createCollection("visits", function (err) {
+        if (err) {
+          console.log("error creating visits collection:", err);
+        } else {
+          console.log("visits collection recreated");
+        }
+      });
+    }
+  });
+
+  db.collection("cases").drop(function (err) {
+    if (err) {
+      console.log("error dropping cases collection:", err);
+    } else {
+      db.createCollection("cases", function (err) {
+        if (err) {
+          console.log("error creating cases collection:", err);
+        } else {
+          console.log("cases collection recreated");
+        }
+      });
+    }
+  });
+
   console.log("all data erased");
   res.redirect("admin");
 });

@@ -3,7 +3,7 @@
 
 A website created to help users track and manage their potential exposure to virus carriers by crowd-sourcing data about their visits to various places.
 
-It's recommended to upload to MongoDB the sample data found in `auth_demo_app` folder, in order to run the project.
+It's recommended to upload to MongoDB the sample data found in `virus_contact_tracing_app` folder, in order to run the project.
 
 Users can create an account using their credentials, or they can log in as any `User{X}` entering `user{X}pass` as password and as `admin` entering `admin` as password. 
 
@@ -35,13 +35,13 @@ This project was made in collaboration with two of my fellow students, in order 
 
 ## Deployment
 
-To deploy this project run
+To run the server type
 
 ```bash
   node app.js
 ```
 
-To import sample data download [mongotools](https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.8.0.zip) and run at auth_demo_app folder
+To import sample data download [mongotools](https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.8.0.zip) and run at `virus_contact_tracing_app` folder
 
 ```bash
   mongorestore pois.bson
