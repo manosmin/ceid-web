@@ -323,8 +323,8 @@ app.post("/simulate", function (req, res) {
       ),
     });
 
-    console.log("all data erased");
-    res.redirect("admin");
+    console.log("simulation completed");
+    res.redirect("simulation");
 });
 
 // Erasing data

@@ -19,3 +19,18 @@
     </form>
   </div>
 </body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form[action='/adminUpload']");
+      const fileInput = document.getElementById("json");
+      const submitButton = document.querySelector(".submit");
+
+      form.addEventListener("submit", function (event) {
+        if (fileInput.files.length === 0) {
+          event.preventDefault();
+          alert("Επιλέξτε ένα αρχείο για φόρτωση");
+        }
+      });
+    });
+</script>
