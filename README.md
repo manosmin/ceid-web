@@ -3,7 +3,7 @@
 
 A website created to help users track and manage their potential exposure to virus carriers by crowd-sourcing data about their visits to various places in [Patras, Greece](https://en.wikipedia.org/wiki/Patras).
 
-* Users can create an account using their credentials, or they can log in as any `UserX` entering `userXpass` as password, or as `admin` entering `admin` as password. 
+* Users can create a new account, or log in as any `UserX` entering `userXpass` as password and as `admin` entering `admin` as password. 
 
 * The map view page consists of a map and a search box, where users can search for places by typing their type (e.g. `car_rental`, `food`, `store`, `establishment`) or can show all the available points on the map by typing `POI` in search box. The markers have 3 different colors (pink, purple and darkpurple) based on the `current_popularity` percentage. Users can only register a visit at places less than 20 meters away from their location and can optionally enter an estimate of visitors. 
 
