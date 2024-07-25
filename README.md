@@ -5,7 +5,7 @@ A website created to help users track and manage their potential exposure to vir
 
 * Users can create a new account, or log in as any `UserX` entering `userXpass` as password and as `admin` entering `admin` as password. 
 
-* The map view page consists of a map and a search box, where users can search for places by typing their type (e.g. `car_rental`, `food`, `store`, `establishment`) or can show all the available points on the map by typing `POI` in search box. The markers have 3 different colors (pink, purple and darkpurple) based on the `current_popularity` percentage. Users can only register a visit at places less than 20 meters away from their location and can optionally enter an estimate of visitors. 
+* The map view page consists of a map and a search box, where users can search for places by typing their type (e.g. `car_rental`, `food`, `store`, `establishment`) or can show all the available points on the map by typing `POI` in search box. The markers have 3 different colors (pink, purple and dark purple) based on the `current_popularity` percentage. Users can only register a visit at places less than 20 meters far from their location and can optionally enter an estimate of visitors. 
 
 * Users can also register themselves as cases at a chosen date, but they can't register a case unless 14 days have passed since the previous. When a case is found, other users are able to see if they had visited the same place within +-2 hours with that user, for the past 7 days. 
 
