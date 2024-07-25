@@ -43,7 +43,7 @@ L.control
         drawCircle: true,
     })
     .addTo(myMap);
-    
+
 /*
 if (!navigator.geolocation) {
     console.log("geolocation is not supported");
@@ -73,70 +73,88 @@ const fake = {
 const marker = L.marker([fake.lat, fake.lng], {
         icon: blueMarker
     })
-    .bindPopup(`<div class="signnew"><b> Η τοποθεσία μου</div>`, { maxWidth: 200 })
+    .bindPopup(`<div class="signnew"><b> Η τοποθεσία μου</div>`, {
+        maxWidth: 200
+    })
     .addTo(myMap);
-L.circle([fake.lat, fake.lng], 20).setStyle({fillColor: 'gray', color: 'gray'}).addTo(myMap);
+L.circle([fake.lat, fake.lng], 20).setStyle({
+    fillColor: 'gray',
+    color: 'gray'
+}).addTo(myMap);
 myMap.setView([fake.lat, fake.lng], 15);
 
 function submitData() {
     const userQuery = document.getElementById("search-box");
     const searchResults = document.getElementById("searchResults");
-    
+
     let match = userQuery.value.match(/\s*/);
     if (match[0] === userQuery.value) {
         searchResults.innerHTML = "";
         return;
     }
-    
+
     fetch("getPOIS", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ payload: userQuery.value })
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        const payload = data.payload;
-        searchResults.innerHTML = "";
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                payload: userQuery.value
+            })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            const payload = data.payload;
+            searchResults.innerHTML = "";
 
-        payload.forEach((item, index) => {
-            const POIdata = {
-                id: item.id,
-                name: item.name,
-                address: item.address,
-                lat: item.coordinates.lat,
-                lng: item.coordinates.lng,
-                cur: item.current_popularity,
-                day: item.populartimes[fixWeek[d.getDay()]].name,
-                popnow: item.populartimes[fixWeek[d.getDay()]].data[fixTime[d.getHours()]],
-                pop1hr: item.populartimes[fixWeek[d.getDay()]].data[fixTime[d.getHours() + 1]],
-                pop2hr: item.populartimes[fixWeek[d.getDay()]].data[fixTime[d.getHours() + 2]]
-            };
+            payload.forEach((item, index) => {
+                const POIdata = {
+                    id: item.id,
+                    name: item.name,
+                    address: item.address,
+                    lat: item.coordinates.lat,
+                    lng: item.coordinates.lng,
+                    cur: item.current_popularity,
+                    day: item.populartimes[fixWeek[d.getDay()]].name,
+                    popnow: item.populartimes[fixWeek[d.getDay()]].data[fixTime[d.getHours()]],
+                    pop1hr: item.populartimes[fixWeek[d.getDay()]].data[fixTime[d.getHours() + 1]],
+                    pop2hr: item.populartimes[fixWeek[d.getDay()]].data[fixTime[d.getHours() + 2]]
+                };
 
-            if (isWithinMapBounds(POIdata.lat, POIdata.lng)) {
-                if (index >= 0) {
-                    searchResults.innerHTML += "<hr>";
-                    searchResults.innerHTML += `<button type="button" class="btn btn-link" onclick="focusOnMarker(${item.coordinates.lat}, ${item.coordinates.lng})"><span style="font-family: 'Ubuntu', sans-serif; color: #4c27b0; font-weight: bold;">${item.name}</span></button>`;
+                if (isWithinMapBounds(POIdata.lat, POIdata.lng)) {
+                    if (index >= 0) {
+                        searchResults.innerHTML += "<hr>";
+                        searchResults.innerHTML += `<button type="button" class="btn btn-link" onclick="focusOnMarker(${item.coordinates.lat}, ${item.coordinates.lng})"><span style="font-family: 'Ubuntu', sans-serif; color: #4c27b0; font-weight: bold;">${item.name}</span></button>`;
+                    }
+
+                    const distance = calculateDistance(POIdata.lat, POIdata.lng, fake.lat, fake.lng);
+                    const averagePop3hr = (POIdata.popnow + POIdata.pop1hr + POIdata.pop2hr) / 3;
+                    const popupContent = createPopupContent(POIdata, averagePop3hr, distance);
+                    const markerIcon = getMarkerIcon(averagePop3hr);
+
+                    L.marker([POIdata.lat, POIdata.lng], {
+                            icon: markerIcon
+                        })
+                        .bindPopup(popupContent, {
+                            maxWidth: 200
+                        })
+                        .addTo(myLayer)
+                        .on('click', () => {
+                            circlesLayer.clearLayers();
+                            L.circle([POIdata.lat, POIdata.lng], 20).setStyle({
+                                fillColor: 'pink',
+                                color: 'purple'
+                            }).addTo(circlesLayer);
+                        })
+                        .on('popupopen', () => {
+                            let elem = document.getElementById(`insertbut_${POIdata.id}`);
+                            elem.disabled = !(distance <= 20);
+                        });
+
+
                 }
-                
-                const distance = calculateDistance(POIdata.lat, POIdata.lng, fake.lat, fake.lng);
-                const averagePop3hr = (POIdata.popnow + POIdata.pop1hr + POIdata.pop2hr) / 3;
-                const popupContent = createPopupContent(POIdata, averagePop3hr, distance);
-                const markerIcon = getMarkerIcon(averagePop3hr);
-                
-                const marker = L.marker([POIdata.lat, POIdata.lng], { icon: markerIcon })
-                    .bindPopup(popupContent, { maxWidth: 200 })
-                    .addTo(myLayer);
-                    
-                
-                marker.on('popupopen', () => {
-                    let elem = document.getElementById(`insertbut_${POIdata.id}`);
-                    elem.disabled = !(distance <= 20);
-                });
-            }
+            });
         });
-    });
 }
 
 function isWithinMapBounds(lat, lng) {
@@ -151,8 +169,8 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
 }
 
 function createPopupContent(POIdata, averagePop3hr) {
-    const visitText = POIdata.cur == null ? 
-        `<span style="color: red">Δεν υπάρχουν δεδομένα</span>` : 
+    const visitText = POIdata.cur == null ?
+        `<span style="color: red">Δεν υπάρχουν δεδομένα</span>` :
         `<span>${POIdata.cur} επισκέπτες τώρα</span>`;
 
     const popupContent2 = `
@@ -197,6 +215,9 @@ function focusOnMarker(x, y) {
     myMap.closePopup();
     circlesLayer.clearLayers();
     myMap.setView([x, y], 18);
-    L.circle([x, y], 20).setStyle({fillColor: 'pink', color: 'purple'}).addTo(circlesLayer);
+    L.circle([x, y], 20).setStyle({
+        fillColor: 'pink',
+        color: 'purple'
+    }).addTo(circlesLayer);
     return;
 }
