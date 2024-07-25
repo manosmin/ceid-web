@@ -12,7 +12,7 @@ A website created to help users track and manage their potential exposure to vir
 * Finally, users can edit their username and password, show their cases and visits history, while admin has the ability to upload/delete data from the database, simulate data and view various charts based on users statistics.
 
 
- *It's strongly advised to upload sample data from `virus_contact_tracing_app` folder, or upload `.json` data from `json` folder manually, by logging in as admin.*
+ *It's strongly advised to upload sample data from `virus_contact_tracing_app` folder, or upload `.json` data from `json` folder manually and run the simulation, by logging in as admin.*
 
 
 
