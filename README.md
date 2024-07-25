@@ -1,7 +1,7 @@
 
 # Web Programming & Systems Project @CEID
 
-A website created to help users track and manage their potential exposure to virus carriers by crowd-sourcing data about their visits to various places.
+A website created to help users track and manage their potential exposure to virus carriers by crowd-sourcing data about their visits to various places in [Patras, Greece](https://en.wikipedia.org/wiki/Patras).
 
 * Users can create an account using their credentials, or they can log in as any `UserX` entering `userXpass` as password, or as `admin` entering `admin` as password. 
 
