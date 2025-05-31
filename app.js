@@ -3,15 +3,13 @@ var express = require("express"),
   passport = require("passport"),
   bodyParser = require("body-parser"),
   LocalStrategy = require("passport-local"),
-  passportLocalMongoose = require("passport-local-mongoose"),
   User = require("./models/user"),
   POI = require("./models/POI"),
   Case = require("./models/case"),
   Visit = require("./models/visit");
 
-const res = require("express/lib/response");
 
-mongoose.connect("mongodb://localhost/auth_demo_app", {
+mongoose.connect("mongodb://localhost/virus_contact_tracing_app", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -41,16 +39,29 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Handling admin signup
-User.register(
-  new User({ username: "admin", email: null, role: 2 }),
-  "admin",
-  function (err, user) {
-    if (err) {
-      console.log(err);
-    }
-    passport.authenticate("local");
+User.findOne({ username: "admin" }, function (err, user) {
+  if (err) {
+    console.log(err);
+    return;
   }
-);
+  if (user) {
+    console.log("admin user already exists");
+    return;
+  }
+  User.register(
+    new User({ username: "admin", email: null, role: 2 }),
+    "admin",
+    function (err) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      passport.authenticate("local")(null, null, function () {
+        console.log("admin user registered successfully");
+      });
+    }
+  );
+});
 
 
 // Showing home page
@@ -58,9 +69,9 @@ app.get("/", function (req, res) {
   res.render("login");
 });
 
-// Showing secret page
-app.get("/secret", isLoggedIn, function (req, res) {
-  res.render("secret");
+// Showing mapview page
+app.get("/mapview", isLoggedIn, function (req, res) {
+  res.render("mapview");
 });
 
 // Inserting visit to database
@@ -99,7 +110,7 @@ app.post("/visit", function (req, res) {
       return insertedVisit;
     })
     .catch((err) => console.error(`failed to insert visit: ${err}`));
-  res.render("secret");
+  res.render("mapview");
 });
 
 // Showing register form
@@ -122,7 +133,7 @@ app.post("/register", function (req, res) {
         return res.render("register");
       }
       passport.authenticate("local")(req, res, function () {
-        res.render("secret");
+        res.render("mapview");
       });
     }
   );
@@ -135,10 +146,8 @@ app.get("/login", function (req, res) {
 });
 
 // Handling user login
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/secret",
+app.post( "/login", passport.authenticate("local", {
+    successRedirect: "/mapview",
     failureRedirect: "/login",
   }),
   function (req, res) {}
@@ -211,6 +220,7 @@ app.get("/settings", isLoggedIn, function (req,res) {
   return;
   
 });
+
 // Showing user contact with covid
 app.get("/contact", isLoggedIn, function (req,res) {
   res.render("contact");
@@ -294,7 +304,7 @@ app.post("/simulate", function (req, res) {
               start.getTime() +
                 Math.random() * (end.getTime() - start.getTime())
             ),
-            people_estimate: null,
+            people_estimate: Math.floor(Math.random() * 15) + 1,
             name: docs1[0]["name"],
             id: docs1[0]["id"]
           };
@@ -312,16 +322,65 @@ app.post("/simulate", function (req, res) {
         start.getTime() + Math.random() * (end.getTime() - start.getTime())
       ),
     });
+
+    console.log("simulation completed");
+    res.redirect("simulation");
 });
 
 // Erasing data
 app.post("/adminDelete", function (req, res) {
-  db.collection("pois").drop();
-  db.collection("visits").drop();
-  db.collection("cases").drop();
-  db.createCollection("pois");
-  db.createCollection("visits");
-  db.createCollection("cases");
+  // Remove all users except admin
+  User.deleteMany({ username: { $ne: "admin" } }, function (err) {
+    if (err) {
+      console.log("error deleting users:", err);
+    } else {
+      console.log("all users except admin deleted");
+    }
+  });
+
+  // Drop and recreate collections
+  db.collection("pois").drop(function (err) {
+    if (err) {
+      console.log("error dropping POIs collection:", err);
+    } else {
+      db.createCollection("pois", function (err) {
+        if (err) {
+          console.log("error creating POIs collection:", err);
+        } else {
+          console.log("POIs collection recreated");
+        }
+      });
+    }
+  });
+
+  db.collection("visits").drop(function (err) {
+    if (err) {
+      console.log("error dropping visits collection:", err);
+    } else {
+      db.createCollection("visits", function (err) {
+        if (err) {
+          console.log("error creating visits collection:", err);
+        } else {
+          console.log("visits collection recreated");
+        }
+      });
+    }
+  });
+
+  db.collection("cases").drop(function (err) {
+    if (err) {
+      console.log("error dropping cases collection:", err);
+    } else {
+      db.createCollection("cases", function (err) {
+        if (err) {
+          console.log("error creating cases collection:", err);
+        } else {
+          console.log("cases collection recreated");
+        }
+      });
+    }
+  });
+
   console.log("all data erased");
   res.redirect("admin");
 });
@@ -355,21 +414,21 @@ app.get("/visits", isLoggedIn, function (req, res) {
 });
 
 // Handling user's case search
-app.post("/test1", async (req, res) => {
+app.post("/caseSearch", async (req, res) => {
   const user = req.user.username;
   let find = await Case.find({ username: user });
   res.send(find);
 });
 
 // Handling user's visit search
-app.post("/test2", async (req, res) => {
+app.post("/visitSearch", async (req, res) => {
   const user = req.user.username;
   let find = await Visit.find({ username: user });
   res.send(find);
 });
 
 // Handling user's encounter with active case
-app.post("/test3", async (req, res) => {
+app.post("/contactSearch", async (req, res) => {
   const user = req.user.username;
   let find = await Visit.aggregate([
     {
@@ -437,7 +496,7 @@ app.post("/chartCases", async (req, res) => {
 });
 
 // Handling active case chart
-app.post("/chartYolo", async (req, res) => {
+app.post("/chartActiveCases", async (req, res) => {
   let x = await db
     .collection("cases")
     .aggregate([

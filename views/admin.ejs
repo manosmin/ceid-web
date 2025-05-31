@@ -3,38 +3,34 @@
   <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <script src="dist/include-html.min.js"></script>
-
+  <script src="adminUpload.js"></script>
 </head>
+
 <body>
   <div data-include="/menuadmin.html"></div>
-  <div class = "main">
-    <p class="sign"  style= text-align:center >Ανεβάστε ένα αρχείο</p>
-  <form action="/adminUpload" method="POST">
-    <input class="upload" type="file" name="json" id="json" />
-  </br></br>
-    <input class="submit" type="submit" value="Φόρτωση" />
-  </form>
-
-  <form action="/adminDelete" method="POST">
-    <input class="delete" type="submit" value="Διαγραφή όλων των στοιχείων!"/>
-  </form>
-</div>
-  
+  <div class="main">
+    <p class="sign" style=text-align:center>Ανεβάστε δεδομένα</p>
+    <form action="/adminUpload" method="POST">
+      <input class="upload" type="file" name="json" id="json" />
+      <button class="submit" type="submit">Φόρτωση αρχείου</button>
+    </form>
+    <form action="/adminDelete" method="POST">
+      <button class="submit" type="submit">Διαγραφή όλων</button>
+    </form>
+  </div>
 </body>
 
 <script>
-  function fileUploaded() {
-  var myUploadedFile = document.getElementById("myFile").files[0];
-  var script = document.createElement('script');
-  var reader = new FileReader();
-  reader.readAsText(myUploadedFile, "UTF-8");
-  reader.onload = function(evt) {
-    script.innerHTML = evt.target.result;
-  };
-  script.type = "text/javascript";
-  console.log("Running the script: " + myUploadedFile.name);
-  document.body.appendChild(script);
-};
+  document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form[action='/adminUpload']");
+      const fileInput = document.getElementById("json");
+      const submitButton = document.querySelector(".submit");
 
-document.getElementById("myFile").addEventListener("change", fileUploaded, false);
+      form.addEventListener("submit", function (event) {
+        if (fileInput.files.length === 0) {
+          event.preventDefault();
+          alert("Επιλέξτε ένα αρχείο για φόρτωση");
+        }
+      });
+    });
 </script>

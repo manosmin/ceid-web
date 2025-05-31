@@ -12,13 +12,27 @@
   <div data-include="/menu.html"></div>
   <div class = "main">
   <p class="sign"  style= text-align:center >Δήλωση κρούσματος </p>
-  </br></br></br>
+  </br></br></br></br></br>
   <form action="/cases" method="post">
     <div class="dateInput">
     <input type="date" class="form-control" id="dateInput" name="dateInput" />
   </div>
-    </br></br></br>
+    </br>
     <input type="submit" class="submit" value="Υποβολή" id="submitDate" />
   </form>
   </div>
 </body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form[action='/cases']");
+    const dateInput = document.getElementById("dateInput");
+
+    form.addEventListener("submit", function (event) {
+      if (dateInput.value === "") {
+        event.preventDefault();
+        alert("Επιλέξτε μια ημερομηνία");
+      }
+    });
+  });
+</script>
